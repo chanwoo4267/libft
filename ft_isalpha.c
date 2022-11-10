@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:31:06 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/09 16:31:08 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/10 20:19:46 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (c);
+		return (1);
 	else
 		return (0);
 }

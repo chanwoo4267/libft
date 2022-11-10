@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:30:59 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/09 17:26:56 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/10 20:19:53 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
-		return (c);
+		return (1);
 	else
 		return (0);
 }
