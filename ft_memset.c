@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:51:03 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/09 17:24:36 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/11 13:30:32 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char	*t;
+	unsigned char	*ptr_b;
 
-	t = (unsigned char *)b;
+	ptr_b = (unsigned char *)b;
 	while (len > 0)
 	{
-		*t = (unsigned char)c;
-		t++;
+		*ptr_b = (unsigned char)c;
+		ptr_b++;
 		len--;
 	}
 	return (b);

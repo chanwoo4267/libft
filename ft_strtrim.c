@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 20:42:00 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/11 21:24:33 by chanwopa         ###   ########seoul.kr  */
+/*   Created: 2022/11/11 21:28:12 by chanwopa          #+#    #+#             */
+/*   Updated: 2022/11/11 21:28:21 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	void	*ptr;
-	size_t	bytes;
 
-	bytes = count * size;
-	ptr = malloc(bytes);
-	if (ptr)
-		memset(ptr, 0, bytes);
-	return (ptr);
 }
