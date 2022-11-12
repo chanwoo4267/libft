@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 18:09:35 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/11 15:08:41 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/12 15:40:46 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*p;
 
-	p = s;
+	p = (char *)s;
 	while (*p != '\0')
 	{
 		if (*p == (char)c)

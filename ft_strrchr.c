@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 19:05:39 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/11 18:56:20 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/12 15:48:52 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	size_t	len;
 	size_t	idx;
 
-	p = s;
+	p = (char *)s;
 	len = ft_strlen(s);
 	idx = -1;
 	ret = 0;

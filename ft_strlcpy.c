@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:58:28 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/11 18:20:07 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/12 17:09:31 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,20 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	src_len;
-	size_t	dst_len;
+	size_t	copied_len;
 
+	if ((!dst || !src) && !dstsize)
+		return (0);
 	src_len = ft_strlen(src);
-	dst_len = ft_strlen(dst);
-	if (!dst_len)
-		return (src_len);
-	while (dstsize > 1 || *src == '\0')
+	copied_len = 0;
+	while (*src && copied_len + 1 < dstsize)
 	{
 		*dst = *src;
 		dst++;
 		src++;
-		dstsize--;
+		copied_len++;
 	}
-	*dst = '\0';
+	if (dstsize)
+		*dst = '\0';
 	return (src_len);
 }
