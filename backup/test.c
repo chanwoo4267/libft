@@ -1,9 +1,9 @@
 #include "stdio.h"
 #include "string.h"
 #include "stdlib.h"
+#include "ft_itoa.c"
 
 int main()
 {
-	char a[10] = "test";
-	printf("%s\n", memcpy(0, a, 2));
+	printf("%s\n", ft_itoa(0));
 }

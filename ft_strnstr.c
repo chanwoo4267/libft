@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 20:33:49 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/12 17:11:09 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/13 15:58:35 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,16 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	const char	*ptr_h;
-	const char	*ptr_n;
-
-	if (!(*needle))
+	if (*needle && len == 0)
+		return (0);
+	if (!*needle || len == 0)
 		return ((char *)haystack);
-	while (*haystack && len > 0)
+	while (*haystack && len >= ft_strlen(needle))
 	{
-		ptr_h = haystack;
-		ptr_n = needle;
-		while (*ptr_h && *ptr_n != 0)
-		{
-			if (*ptr_h != *ptr_n)
-				break ;
-			ptr_h++;
-			ptr_n++;
-		}
-		if (!(*ptr_n))
+		if (*haystack == *needle && \
+			!ft_strncmp(haystack, needle, ft_strlen(needle)))
 			return ((char *)haystack);
+		len--;
 		haystack++;
 	}
 	return (NULL);

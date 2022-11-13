@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:28:12 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/11 21:28:21 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/14 00:25:07 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,14 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	size_t	len;
 
+	if (!s1 || !set)
+		return (NULL);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	len = ft_strlen(s1) - 1;
+	while (len != 0 && ft_strchr(set, s1[len]))
+		len--;
+	return (ft_substr((char *)s1, 0, len + 1));
 }

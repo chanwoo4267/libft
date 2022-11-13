@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:27:13 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/11 21:55:29 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/13 16:19:14 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*m_str;
-	char	*ret_ptr;
-	size_t	s_len;
-	size_t	m_len;
+	char	*ptr;
+	char	*ret;
 
-	s_len = ft_strlen(s);
-	if (start + len > s_len)
-		m_len = s_len - start;
-	else
-		m_len = len;
-	m_str = malloc(sizeof(char) * (m_len + 1));
-	if (!m_str)
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	ptr = malloc(sizeof(char) * (len + 1));
+	if (!ptr)
 		return (NULL);
-	ret_ptr = m_str;
+	ret = ptr;
 	s += start;
-	while (m_len > 0)
+	while (len-- > 0)
 	{
-		*m_str = *s;
-		m_str++;
+		*ptr = *s;
+		ptr++;
 		s++;
-		m_len--;
 	}
-	*m_str = '\0';
-	return (ret_ptr);
+	*ptr = '\0';
+	return (ret);
 }
