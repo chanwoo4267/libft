@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:29:01 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/14 00:09:11 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/14 15:34:08 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,30 @@ size_t	ft_get_split_count(char const *s, char c)
 	return (count);
 }
 
-char	**free_strs(char **strs)
-{
-	size_t	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		free (strs[i]);
-		strs[i] = NULL;
-		i++;
-	}
-	free (strs);
-	strs = NULL;
-	return (strs);
-}
-
-size_t	get_len(const char *s, char c)
+size_t	ft_get_nonsep_len(const char *s, char c)
 {
 	size_t	len;
 
 	len = 0;
-	while (s[len] && s[len] != c)
+	while (*(s + len) && *(s + len) != c)
 		len++;
 	return (len);
+}
+
+char	**ft_free_split(char **strs)
+{
+	size_t	index;
+
+	index = 0;
+	while (*(strs + index))
+	{
+		free(*(strs + index));
+		*(strs + index) = NULL;
+		index++;
+	}
+	free (strs);
+	strs = NULL;
+	return (strs);
 }
 
 char	**ft_split(char const *s, char c)
@@ -64,7 +64,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	strs = (char **)malloc(sizeof(char *) * (ft_get_split_count(s, c) + 1));
+	strs = malloc(sizeof(char *) * (ft_get_split_count(s, c) + 1));
 	if (!strs)
 		return (NULL);
 	index = 0;
@@ -74,12 +74,13 @@ char	**ft_split(char const *s, char c)
 			s++;
 		else
 		{
-			strs[index++] = ft_substr(s, 0, get_len(s, c));
-			if (!strs[index - 1])
-				return (free_strs(strs));
-			s += get_len(s, c);
+			*(strs + index) = ft_substr(s, 0, ft_get_nonsep_len(s, c));
+			if (!(*(strs + index)))
+				return (ft_free_split(strs));
+			index++;
+			s += ft_get_nonsep_len(s, c);
 		}
 	}
-	strs[index] = 0;
+	*(strs + index) = NULL;
 	return (strs);
 }

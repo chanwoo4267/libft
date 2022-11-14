@@ -6,7 +6,7 @@
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 19:13:57 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/12 17:10:53 by chanwopa         ###   ########seoul.kr  */
+/*   Updated: 2022/11/14 16:39:24 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	idx = 0;
 	while (idx < n)
 	{
-		if (str[idx] == (unsigned char)c)
+		if (*(str + idx) == (unsigned char)c)
 			return ((void *)(str + idx));
 		idx++;
 	}

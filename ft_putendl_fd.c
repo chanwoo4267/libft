@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 19:05:39 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/14 19:35:05 by chanwopa         ###   ########seoul.kr  */
+/*   Created: 2022/11/11 21:31:01 by chanwopa          #+#    #+#             */
+/*   Updated: 2022/11/14 12:39:49 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	len;
-
-	len = ft_strlen(s);
-	if ((unsigned char)c == '\0')
-		return ((char *)(s + len));
-	s += len - 1;
-	while (len--)
-	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s--;
-	}
-	return (NULL);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

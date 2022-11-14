@@ -6,38 +6,53 @@
 #    By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 12:24:26 by chanwopa          #+#    #+#              #
-#    Updated: 2022/11/14 00:32:52 by chanwopa         ###   ########seoul.kr   #
+#    Updated: 2022/11/14 21:07:23 by chanwopa         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-CFILES = ft_atoi.c ft_isprint.c ft_memmove.c ft_strchr.c ft_strmapi.c \
-		ft_toupper.c ft_bzero.c ft_itoa.c ft_memset.c ft_strdup.c ft_strncmp.c \
-		ft_calloc.c ft_striteri.c ft_strnstr.c ft_isalnum.c \
-		ft_strjoin.c ft_strrchr.c ft_isalpha.c ft_memchr.c \
-		ft_strlcat.c ft_strtrim.c ft_isascii.c ft_memcmp.c \
-		ft_strlcpy.c ft_substr.c ft_isdigit.c ft_memcpy.c \
-		ft_split.c ft_strlen.c ft_tolower.c
-OBJFILES = $(CFILES:.c=.o)
 NAME = libft.a
-LIBC = ar -rcs
+CC = cc
+CFLAG = -Wall -Wextra -Werror
+AR = ar -rsc
 RM = rm -rf
+S_SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+        ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+		ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
+		ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
+		ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
+		ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+S_OBJS = $(S_SRCS:.c=.o)
+B_SRCS = $(S_SRCS) ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
+		ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c \
+		ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c \
+		ft_lstsize_bonus.c
+B_OBJS = $(B_SRCS:.c=.o)
 
-all: ${NAME}
+ifdef BONUS
+    OBJS = $(B_OBJS)
+else
+    OBJS = $(S_OBJS)
+endif
 
-${NAME}: ${OBJFILES}
-	${LIBC} ${NAME} ${OBJFILES}
+all : $(NAME)
+	sleep 1
 
-${OBJ}: ${CFILES}
-	$(CC) $(CFLAGS) -I ./ -c ${CFILES}
+clean :
+	$(RM) *.o
 
-clean:
-	${RM} ${OBJFILES}
+fclean : clean
+	$(RM) $(NAME)
 
-fclean: clean
-	${RM} ${NAME}
+re : fclean all
 
-bonus: all
+bonus :
+	$(MAKE) BONUS=1 $(NAME)
 
-re: fclean all
+$(NAME) : $(OBJS)
+	$(AR) $@ $^
+
+%.o : %.c
+	$(CC) $(CLFAG) -c $< -o $@
+	
+.PHONY : all clean fclean re bonus

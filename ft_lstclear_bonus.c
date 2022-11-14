@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 19:05:39 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/14 19:35:05 by chanwopa         ###   ########seoul.kr  */
+/*   Created: 2022/11/14 16:08:21 by chanwopa          #+#    #+#             */
+/*   Updated: 2022/11/14 18:07:18 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	len;
+	t_list	*ptr;
+	t_list	*ptr_next;
 
-	len = ft_strlen(s);
-	if ((unsigned char)c == '\0')
-		return ((char *)(s + len));
-	s += len - 1;
-	while (len--)
+	if (!lst || !*lst)
+		return ;
+	ptr = *lst;
+	while (ptr)
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s--;
+		ptr_next = ptr->next;
+		ft_lstdelone(ptr, del);
+		ptr = ptr_next;
 	}
-	return (NULL);
+	*lst = NULL;
 }

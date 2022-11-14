@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwopa <chanwopa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 19:05:39 by chanwopa          #+#    #+#             */
-/*   Updated: 2022/11/14 19:35:05 by chanwopa         ###   ########seoul.kr  */
+/*   Created: 2022/11/11 21:31:18 by chanwopa          #+#    #+#             */
+/*   Updated: 2022/11/14 15:20:51 by chanwopa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	len;
+	char	c;
 
-	len = ft_strlen(s);
-	if ((unsigned char)c == '\0')
-		return ((char *)(s + len));
-	s += len - 1;
-	while (len--)
+	if (n == -2147483648)
 	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s--;
+		write(fd, "-2147483648", sizeof(char) * 11);
+		return ;
 	}
-	return (NULL);
+	if (n < 0)
+	{
+		write(fd, "-", sizeof(char));
+		n *= -1;
+	}
+	if (n < 10)
+	{
+		c = n + '0';
+		write(fd, &c, sizeof(char));
+	}
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		c = n % 10 + '0';
+		write(fd, &c, sizeof(char));
+	}
 }
