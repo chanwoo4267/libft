@@ -38,20 +38,64 @@ It will contain a lot of general purpose functions your programs will rely upon.
 
 
 ### Built With
-* [![C][C-badge]][C-url]
+* [![C][C-shield]][C-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## About The Project
 
-You must redo a set of functions from the libc. Your functions will have the same prototypes and implement the same behaviors as the originals.
-Next, you must develop a set of functions that are either not in the libc, or that are part of it but in a different form.
-Also, develop functions to manipulate memory and strings.
+List of Required Functions
+
+* isalpha
+* isdigit
+* isalnum
+* isascii
+* isprint
+* strlen
+* memset
+* bzero
+* memcpy
+* memmove
+* strlcpy
+* strlcat
+* toupper
+* tolower
+* strchr
+* strrchr
+* strncmp
+* memchr
+* memcmp
+* strnstr
+* atoi
+
+Functions that are either not in the libc, or that are part of it but in a different form
+
+* calloc
+* strdup
+* ft_substr
+* ft_strjoin
+* ft_strtrim
+* ft_split
+* ft_itoa
+* ft_strmapi
+* ft_striteri
+* ft_putchar_fd
+* ft_putstr_fd
+* ft_putendl_fd
+* ft_putnbr_fd
+* ft_lstnew
+* ft_lstadd_front
+* ft_lstsize
+* ft_lstlast
+* ft_lstadd_back
+* ft_lstdelone
+* ft_lstclear
+* ft_lstiter
+* ft_lstmap
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * C99+
 
 ### Installation
