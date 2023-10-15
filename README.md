@@ -45,7 +45,7 @@ It will contain a lot of general purpose functions your programs will rely upon.
 
 ## About The Project
 
-List of Required Functions
+List of Required Functions.
 
 * isalpha
 * isdigit
@@ -69,7 +69,8 @@ List of Required Functions
 * strnstr
 * atoi
 
-Functions that are either not in the libc, or that are part of it but in a different form
+Functions that are either not in the libc, or that are part of it but in a different form.
+See Subject Page above.
 
 * calloc
 * strdup
@@ -113,5 +114,5 @@ Functions that are either not in the libc, or that are part of it but in a diffe
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[C-shield]: https://img.shields.io/badge/Cbadge-35495E?style=for-the-badge&logo=c&logoColor=White
+[C-shield]: https://img.shields.io/badge/C-35495E?style=for-the-badge&logo=c&logoColor=White
 [C-url]: https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2731.pdf
