@@ -16,6 +16,7 @@
       <a href="#summary">Summary</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#spent-time">Spent Time</a></li>
       </ul>
     </li>
     <li>
@@ -42,6 +43,8 @@ It will contain a lot of general purpose functions your programs will rely upon.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Spent Time
+22.11.09 ~ 22.11.15
 
 ## About The Project
 
